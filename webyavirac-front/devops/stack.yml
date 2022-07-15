@@ -4,10 +4,9 @@ services:
   frontend-webyavirac: 
     image: webyavirac:latest
     networks:
-    - traefik-public
-    - webyavirac-networks
+      - traefik-public
     deploy:
-      labels:
+      labels:     
         - "traefik.enable=true"
         - "traefik.http.routers.webyavirac.entrypoints=http"
         - "traefik.http.routers.webyavirac.rule=Host(`webyavirac.sistemaagil.net`)"
@@ -19,8 +18,9 @@ services:
         - "traefik.http.routers.webyavirac-secure.tls.certresolver=http"
         - "traefik.http.routers.webyavirac-secure.service=webyavirac"
         - "traefik.http.services.webyavirac.loadbalancer.server.port=80"
-        - "traefik.docker.network=traefik-public"
-
+        - "traefik.docker.network=traefik-public"	
 networks:
   traefik-public:
-	  external: true
+    external: true
+  tendencias-networks:
+    external: true
