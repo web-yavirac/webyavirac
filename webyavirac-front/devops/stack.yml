@@ -41,10 +41,11 @@ services:
         - "traefik.http.services.backend-webyavirac.loadbalancer.server.port=3000"
         - "traefik.docker.network=traefik-public"
 
-  basededatos-pg:
-    image: postgres:14
+  basededatos-mongo:
+    image: mongo
     environment:
-      POSTGRES_PASSWORD: r6qJMCocTNQdHXQyCMhW
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: r6qJMCocTNQdHXQyCMhW
     networks:
       - webyavirac-networks	
 
