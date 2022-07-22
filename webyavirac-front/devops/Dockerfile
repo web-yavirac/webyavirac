@@ -4,4 +4,4 @@ FROM nginx:1.23.0
 
 COPY docs/* /usr/share/nginx/html/
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"] 
