@@ -12,6 +12,8 @@ logs-back:
 	@ docker logs $$(docker ps -q -f name=webyavirac-na_back)
 stack:
 	@ docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}" | grep webyavirac
+volume:
+	@ docker volume create webyavirac_data
 
 
 	#rm 
