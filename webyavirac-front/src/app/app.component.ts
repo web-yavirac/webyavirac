@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'webyavirac-front';
 	cssUrl: string;
 	constructor(public sanitizer: DomSanitizer){
-		this.cssUrl = '/./dashboard/dashboard.component.css';
+		this.cssUrl = './assets/styles/styles1.css';
 	}
 }
