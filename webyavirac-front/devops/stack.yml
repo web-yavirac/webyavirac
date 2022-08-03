@@ -50,6 +50,7 @@ services:
       - webyavirac-networks	
     volumes:
       - webyavirac_data:/data/db
+
   express-mongo-webyavirac:
     image: mongo-express
     environment:
