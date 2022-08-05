@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  frontend-webyavirac: 
+    image: webyavirac:latest
+    networks:
+      - traefik-public
+      - webyavirac-networks
+    deploy:
+      labels:     
+        - "traefik.enable=true"
+        - "traefik.http.routers.webyavirac.entrypoints=http"
+        - "traefik.http.routers.webyavirac.rule=Host(`webyavirac.sistemaagil.net`)"
+        - "traefik.http.middlewares.webyavirac-https-redirect.redirectscheme.scheme=https"
+        - "traefik.http.routers.webyavirac.middlewares=webyavirac-https-redirect"
+        - "traefik.http.routers.webyavirac-secure.entrypoints=https"
+        - "traefik.http.routers.webyavirac-secure.rule=Host(`webyavirac.sistemaagil.net`)"
+        - "traefik.http.routers.webyavirac-secure.tls=true"
+        - "traefik.http.routers.webyavirac-secure.tls.certresolver=http"
+        - "traefik.http.routers.webyavirac-secure.service=webyavirac"
+        - "traefik.http.services.webyavirac.loadbalancer.server.port=80"
+        - "traefik.docker.network=traefik-public"			
+
+  backend-webyavirac:
+    image: backend-webyavirac:latest
+    networks:
+      - webyavirac-networks
+      - traefik-public
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend-webyavirac.entrypoints=http"
+        - "traefik.http.routers.backend-webyavirac.rule=Host(`backend-webyavirac.sistemaagil.net`)"
+        - "traefik.http.middlewares.backend-webyavirac-https-redirect.redirectscheme.scheme=https"
+        - "traefik.http.routers.backend-webyavirac.middlewares=backend-webyavirac-https-redirect"
+        - "traefik.http.routers.backend-webyavirac-secure.entrypoints=https"
+        - "traefik.http.routers.backend-webyavirac-secure.rule=Host(`backend-webyavirac.sistemaagil.net`)"
+        - "traefik.http.routers.backend-webyavirac-secure.tls=true"
+        - "traefik.http.routers.backend-webyavirac-secure.tls.certresolver=http"
+        - "traefik.http.routers.backend-webyavirac-secure.service=backend-webyavirac"
+        - "traefik.http.services.backend-webyavirac.loadbalancer.server.port=3000"
+        - "traefik.docker.network=traefik-public"
+
+  basededatos-mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: r6qJMCocTNQdHXQyCMhW
+    networks:
+      - webyavirac-networks	
+    volumes:
+      - webyavirac_data:/data/db
+
+  express-mongo-webyavirac:
+    image: mongo-express
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: r6qJMCocTNQdHXQyCMhW
+      ME_CONFIG_MONGODB_URL: mongodb://root:r6qJMCocTNQdHXQyCMhW@basededatos-mongo:27017/
+    networks:
+      - traefik-public
+      - webyavirac-networks
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 512M
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.webyavirac-mongo-express.entrypoints=http"
+        - "traefik.http.routers.webyavirac-mongo-express.rule=Host(`webyavirac-mongo-express.sistemaagil.net`)"
+        - "traefik.http.middlewares.webyavirac-mongo-express-https-redirect.redirectscheme.scheme=https"
+        - "traefik.http.routers.webyavirac-mongo-express.middlewares=webyavirac-mongo-express-https-redirect"
+        - "traefik.http.routers.webyavirac-mongo-express-secure.entrypoints=https"
+        - "traefik.http.routers.webyavirac-mongo-express-secure.rule=Host(`webyavirac-mongo-express.sistemaagil.net`)"
+        - "traefik.http.routers.webyavirac-mongo-express-secure.tls=true"
+        - "traefik.http.routers.webyavirac-mongo-express-secure.tls.certresolver=http"
+        - "traefik.http.routers.webyavirac-mongo-express-secure.service=webyavirac-mongo-express"
+        - "traefik.http.services.webyavirac-mongo-express.loadbalancer.server.port=8081"
+        - "traefik.docker.network=traefik-public"
+networks:
+  traefik-public:
+    external: true
+  webyavirac-networks:
+    external: true
+volumes:
+  webyavirac_data:
+    external: true
