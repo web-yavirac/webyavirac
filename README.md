@@ -97,4 +97,4 @@ pipeline {
 tema nrd
 .
 
-....nicole
+....
