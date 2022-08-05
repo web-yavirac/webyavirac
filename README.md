@@ -95,3 +95,6 @@ pipeline {
     }
 }holagg 
 tema nrd
+.
+
+....nicole
