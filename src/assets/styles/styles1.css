@@ -137,6 +137,8 @@ body {
   min-height: 100vh;
   background: transparent;
   transition: 0.5s;
+	overflow-x: hidden;
+  overfloy-y: scroll;
 }
 
 .main.active {
@@ -248,3 +250,14 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+/* cuerpo dashboard  */
+.cuerpo-inf {
+  padding: 10px 50px 50px 50px;
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+/* dashboard home  */
+
