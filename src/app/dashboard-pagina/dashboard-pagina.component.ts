@@ -21,10 +21,10 @@ export class DashboardPaginaComponent {
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+        { title: 'Carreras', cols: 2, rows: 1 },
+        { title: 'Noticias', cols: 1, rows: 1 },
+        { title: 'Galería', cols: 1, rows: 2 },
+        { title: 'Docentes', cols: 1, rows: 1 }
       ];
     })
   );
