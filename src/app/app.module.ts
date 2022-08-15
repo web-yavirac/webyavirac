@@ -20,7 +20,6 @@ import { MatListModule } from '@angular/material/list';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
