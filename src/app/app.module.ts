@@ -17,13 +17,14 @@ import { NavegationComponent } from './navegation/navegation.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-
+import { CompaniesComponent } from './components/companies/companies.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
+CompaniesComponent,
     NoticiasComponent,
     DashboardPaginaComponent,
     NavegationComponent,
@@ -42,7 +43,8 @@ import { MatListModule } from '@angular/material/list';
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+		HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

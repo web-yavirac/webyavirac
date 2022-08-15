@@ -1,50 +1,63 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>opciones de dashboard del instituto</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+	<h1 class="mat-h1">Dashboard</h1>
+	<mat-grid-list cols="2" rowHeight="350px">
+		<mat-grid-tile
+			*ngFor="let card of cards | async"
+			[colspan]="card.cols"
+			[rowspan]="card.rows"
+		>
+			<mat-card class="dashboard-card">
+				<mat-card-header>
+					<mat-card-title>
+						{{ card.title }}
+						<button
+							mat-icon-button
+							class="more-button"
+							[matMenuTriggerFor]="menu"
+							aria-label="Toggle menu"
+						>
+							<mat-icon>more_vert</mat-icon>
+						</button>
+						<mat-menu #menu="matMenu" xPosition="before">
+							<button mat-menu-item>Expand</button>
+							<button mat-menu-item>Remove</button>
+						</mat-menu>
+					</mat-card-title>
+				</mat-card-header>
+				<mat-card-content class="dashboard-card-content">
+					<div>opciones de dashboard del instituto</div>
+				</mat-card-content>
+			</mat-card>
+		</mat-grid-tile>
+	</mat-grid-list>
 </div>
 
 <div class="container">
 	<div class="row centrar">
-		<table class="table table-bordered border-primary">
-			<caption>Datos de BD</caption>
+		<table class="table table-bordered border-primary"  >
+			<caption>
+				Datos de BD
+			</caption>
 			<thead>
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">First</th>
-					<th scope="col">Last</th>
-					<th scope="col">Handle</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Logo</th>
+					<th scope="col">Type</th>
+					<th scope="col">Link</th>
 					<th scope="col">Editar</th>
 					<th scope="col">Estatus</th>
 				</tr>
 			</thead>
 			<tbody class="table-group-divider">
-				<tr>
+				<tr *ngFor="let companies of listCompanies" >
 					<th scope="row">1</th>
-					<td>Mark</td>
+					<td>{{companies.name}}</td>
 					<td>Otto</td>
 					<td>@mdo</td>
 					<td>@mdo</td>
-					<td>@mdo</td>
+					<td> <button><mat-icon> border_color</mat-icon></button></td>
+					<td>	<mat-icon>public</mat-icon></td>
 				</tr>
 				<tr>
 					<th scope="row">2</th>
@@ -52,7 +65,8 @@
 					<td>Thornton</td>
 					<td>@fat</td>
 					<td>@mdo</td>
-					<td>@mdo</td>
+					<td> <button><mat-icon> border_color</mat-icon></button></td>
+					<td>	<mat-icon>public</mat-icon></td>
 				</tr>
 				<tr>
 					<th scope="row">3</th>
@@ -60,8 +74,10 @@
 					<td>@twitter</td>
 					<td>@mdo</td>
 					<td>@mdo</td>
-					<td>@mdo</td>
+					<td> <button><mat-icon> border_color</mat-icon></button></td>
+					<td>	<mat-icon>public</mat-icon></td>
 				</tr>
+
 			</tbody>
 		</table>
 	</div>
