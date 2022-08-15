@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NoticiasComponent } from './components/noticias/noticias.component';
+import { CrearComponent } from './components/companies/crear/crear.component';
+import { ListarComponent } from './components/companies/listar/listar.component';
+import{HttpClientModule}from '@angular/common/http'
+
+
+
+
 
 
 
@@ -12,13 +19,19 @@ import { NoticiasComponent } from './components/noticias/noticias.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    NoticiasComponent,
+    CrearComponent,
+    ListarComponent,
+    
+    
+    
 
  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

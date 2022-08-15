@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">EMPRESAS</span>
+                    <button class="btn btn-success float-end" routerLink="/crear-empresa">CREAR NUEVA EMPRESA</button>
+                    <table *ngIf="listCompanies.length > 0" class="table table-striped mt-3">
+                        <thead>
+                          <tr>
+                            <th scope="col">name</th>
+                            <th scope="col">logo</th>
+                            <th scope="col">link</th>
+                            <th scope="col">type</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let companies of listCompanies">
+                            <td>{{ companies.name }}</td>
+                            <td>{{ companies.logo }}</td>
+                            <td>{{ companies.link }}</td>
+                            <td>{{ companies.type }}</td>
+                            <td>
+                                <i [routerLink]="['/editar-empresa', companies._id]" class="fas fa-edit text-primary"></i>
+                                <i (click)="eliminarCompanie(companies._id)" class="fas fa-trash text-danger"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h5 style="text-align: start; margin-top: 10px;" *ngIf="listCompanies.length == 0">No hay empresas para mostrar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
