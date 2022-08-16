@@ -19,6 +19,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AgregarComponent } from './components/companies/agregar/agregar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ CompaniesComponent,
     NoticiasComponent,
     DashboardPaginaComponent,
     NavegationComponent,
+		AgregarComponent
 
  
   ],
@@ -43,7 +46,9 @@ CompaniesComponent,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-		HttpClientModule
+		HttpClientModule,
+		FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

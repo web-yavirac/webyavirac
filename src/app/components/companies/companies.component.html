@@ -17,42 +17,18 @@
 				</tr>
 			</thead>
 			<tbody class="table-group-divider">
-				<tr>
-					<th scope="row">1</th>
-					<td></td>
-					<td>Otto</td>
-					<td>@mdo</td>
-					<td>@mdo</td>
-					<td> <button [routerLink]=""><mat-icon> border_color</mat-icon></button></td>
-					<td>	<mat-icon>public</mat-icon></td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-					<td>@mdo</td>
-					<td> <button><mat-icon> border_color</mat-icon></button></td>
-					<td>	<mat-icon>public</mat-icon></td>
-				</tr>
-				<!--<ul class="list-group mb-3">
-					<li class="list-group-item" *ngFor="let companies of companie; let i = index"
-							[class.active]="i == currentIndex" (click)="setProductoActivo(companies, i)">
-							{{ companies.nombre }}
-					</li>
-			</ul>
-				<tr>
-					<th scope="row">3</th>
-					<td>Larry the Bird</td>
-					<td>@twitter</td>
-					<td>@mdo</td>
-					<td>@mdo</td>
-					<td> <button><mat-icon> border_color</mat-icon></button></td>
-					<td>	<mat-icon>public</mat-icon></td>
+				<tr *ngFor="let companies of listCompanies">
+					<td>{{ companies.name }}</td>
+					<td>{{ companies.logo }}</td>
+					<td>{{ companies.link }}</td>
+					<td>{{ companies.type }}</td>
+					<td>
+							<i [routerLink]="['/editar-empresa', companies._id]" class="fas fa-edit text-primary"></i>
+								<i (click)="eliminarCompanie(companies._id)" class="fas fa-trash text-danger"></i>
+					</td>
 				</tr>
 
 			</tbody>
 		</table>
 	</div>
-</div>-->
-       
+</div>

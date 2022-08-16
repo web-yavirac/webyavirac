@@ -3,16 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardPaginaComponent } from './dashboard-pagina/dashboard-pagina.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { NavegationComponent } from './navegation/navegation.component';
-import { ActualizarComponent } from './components/companies/actualizar/actualizar.component';
+import { AgregarComponent } from './components/companies/agregar/agregar.component';
+
 
 const routes: Routes = [
-
-	{path:'home' , component: DashboardPaginaComponent},
-  {path:'tables' , component: NavegationComponent},
-
-  {path:'companies' , component: CompaniesComponent},
-	{path:'actualizar' , component: ActualizarComponent},
-	{ path:'*', redirectTo:'', pathMatch:'full'},
+	{ path:'empresas', component: CompaniesComponent},
+  { path:'crear-empresa', component: AgregarComponent},
+  { path:'editar-empresa/:id', component: AgregarComponent},
+  { path:'**', redirectTo:'', pathMatch:'full'}, //redirecciona a la ruta raiz
 ];
 
 @NgModule({
@@ -20,4 +18,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
