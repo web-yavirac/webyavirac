@@ -7,9 +7,9 @@ import { AgregarComponent } from './components/companies/agregar/agregar.compone
 
 
 const routes: Routes = [
-	{ path:'empresas', component: CompaniesComponent},
-  { path:'crear-empresa', component: AgregarComponent},
-  { path:'editar-empresa/:id', component: AgregarComponent},
+	{ path:'companies', component: CompaniesComponent},
+  { path:'agregar-companie', component: AgregarComponent},
+  { path:'editar-companie/:id', component: AgregarComponent},
   { path:'**', redirectTo:'', pathMatch:'full'}, //redirecciona a la ruta raiz
 ];
 

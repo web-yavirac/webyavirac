@@ -3,7 +3,7 @@ import { Companie } from 'src/app/models/companies';
 import { CompanieService } from 'src/app/services/companies.service';
 
 @Component({
-  selector: 'app-listar',
+  selector: 'app-companies',
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css']
 })

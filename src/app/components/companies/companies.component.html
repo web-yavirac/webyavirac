@@ -1,5 +1,13 @@
 <br><br><br>
 		<div class="container">
+			<div class="row">
+				<div class="col-mg-5">
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" routerLink="/agregar-companie">
+						Crear nueva empresa
+					</button>
+				</div>
+			</div>
+				<br><br><br>
 	<div class="row centrar">
 		<table class="table table-bordered border-primary"  >
 			<caption>
@@ -23,7 +31,7 @@
 					<td>{{ companies.link }}</td>
 					<td>{{ companies.type }}</td>
 					<td>
-							<i [routerLink]="['/editar-empresa', companies._id]" class="fas fa-edit text-primary"></i>
+							<i [routerLink]="['/editar-companie', companies._id]" class="fas fa-edit text-primary"></i>
 								<i (click)="eliminarCompanie(companies._id)" class="fas fa-trash text-danger"></i>
 					</td>
 				</tr>
