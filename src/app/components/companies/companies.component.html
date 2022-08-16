@@ -1,12 +1,17 @@
-
-		<table class="table table-bordered border-primary">
-			<caption>Datos de BD</caption>
+<br><br><br>
+		<div class="container">
+	<div class="row centrar">
+		<table class="table table-bordered border-primary"  >
+			<caption>
+				Datos de BD
+			</caption>
 			<thead>
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">First</th>
-					<th scope="col">Last</th>
-					<th scope="col">Handle</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Logo</th>
+					<th scope="col">Type</th>
+					<th scope="col">Link</th>
 					<th scope="col">Editar</th>
 					<th scope="col">Estatus</th>
 				</tr>
@@ -14,11 +19,12 @@
 			<tbody class="table-group-divider">
 				<tr>
 					<th scope="row">1</th>
-					<td>Mark</td>
+					<td></td>
 					<td>Otto</td>
 					<td>@mdo</td>
 					<td>@mdo</td>
-					<td>@mdo</td>
+					<td> <button [routerLink]=""><mat-icon> border_color</mat-icon></button></td>
+					<td>	<mat-icon>public</mat-icon></td>
 				</tr>
 				<tr>
 					<th scope="row">2</th>
@@ -26,16 +32,27 @@
 					<td>Thornton</td>
 					<td>@fat</td>
 					<td>@mdo</td>
-					<td>@mdo</td>
+					<td> <button><mat-icon> border_color</mat-icon></button></td>
+					<td>	<mat-icon>public</mat-icon></td>
 				</tr>
+				<!--<ul class="list-group mb-3">
+					<li class="list-group-item" *ngFor="let companies of companie; let i = index"
+							[class.active]="i == currentIndex" (click)="setProductoActivo(companies, i)">
+							{{ companies.nombre }}
+					</li>
+			</ul>
 				<tr>
 					<th scope="row">3</th>
 					<td>Larry the Bird</td>
 					<td>@twitter</td>
 					<td>@mdo</td>
 					<td>@mdo</td>
-					<td>@mdo</td>
+					<td> <button><mat-icon> border_color</mat-icon></button></td>
+					<td>	<mat-icon>public</mat-icon></td>
 				</tr>
+
 			</tbody>
 		</table>
-
+	</div>
+</div>-->
+       

@@ -1,0 +1,93 @@
+
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentProducto.id">
+        <h4>Producto</h4>
+        <div>
+            <label><strong>Nombre:</strong></label> {{ currentProducto.nombre }}
+        </div>
+        <div>
+            <label><strong>Precio Compra:</strong></label>{{ currentProducto.pcompra }}
+        </div>
+        <div>
+            <label><strong>Precio Venta:</strong></label>{{ currentProducto.pventa }}
+        </div>
+        <div>
+            <label><strong>Stock:</strong></label>{{ currentProducto.stock }}
+        </div>
+        <div>
+            <label><strong>Detalle:</strong></label>{{ currentProducto.detalle }}
+        </div>
+        <div>
+            <label><strong>Imagen:</strong></label>{{ currentProducto.imagen }}
+        </div>
+        <div>
+            <label><strong>Estado:</strong></label>
+            {{ currentProducto.estado ? "Activo" : "Inactivo" }}
+        </div>
+        <a class="btn btn-warning" routerLink="/productos/{{ currentProducto.id }}">
+            Editar
+        </a>
+    </div>
+    <div *ngIf="!currentProducto">
+        <br />
+        <p>Haga clic en un Producto...</p>
+    </div>
+</div>
+<ng-template #editable>
+    <div *ngIf="currentProducto.id" class="edit-form">
+        <h4>Producto</h4>
+        <form>
+            <div class="form-group mb-3">
+                <label for="nombre" class="mb-2">Nombre</label>
+                <input type="text" class="form-control" id="nombre" [(ngModel)]="currentProducto.nombre"
+                    name="nombre" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="pcompra" class="mb-2">Precio Compra</label>
+                <input type="text" class="form-control" id="pcompra" [(ngModel)]="currentProducto.pcompra"
+                    name="pcompra" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="pventa" class="mb-2">Precio Venta</label>
+                <input type="text" class="form-control" id="pventa" [(ngModel)]="currentProducto.pventa"
+                    name="pventa" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="stock" class="mb-2">Stock</label>
+                <input type="text" class="form-control" id="stock" [(ngModel)]="currentProducto.stock"
+                    name="stock" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="detalle" class="mb-2">Detalle</label>
+                <input type="text" class="form-control" id="detalle" [(ngModel)]="currentProducto.detalle"
+                    name="detalle" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="imagen" class="mb-2">Imagen</label>
+                <input type="text" class="form-control" id="imagen" [(ngModel)]="currentProducto.imagen"
+                    name="imagen" />
+            </div>
+            <div class="form-group mb-5">
+                <label><strong>Estado:</strong></label>
+                {{ currentProducto.estado ? "Activo" : "Inactivo" }}
+            </div>
+        </form>
+        <button class="btn btn-primary me-2 mb-2" *ngIf="currentProducto.estado" (click)="updateEstado(false)">
+            Inactivar
+        </button>
+        <button *ngIf="!currentProducto.estado" class="btn btn-primary me-2 mb-2" (click)="updateEstado(true)">
+            Activar
+        </button>
+        <button class="btn btn-danger me-2 mb-2" (click)="deleteProducto()">
+            Eliminar
+        </button>
+        <button type="submit" class="btn btn-success mb-2" (click)="updateProducto()">
+            Actualizar
+        </button>
+        <p>{{ mensaje }}</p>
+    </div>
+    <div *ngIf="!currentProducto.id">
+        <br />
+        <p>No se puede acceder a este Producto...</p>
+    </div>
+</ng-template>

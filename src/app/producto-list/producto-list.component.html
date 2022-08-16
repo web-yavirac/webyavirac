@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class="list row mt-5">
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Buscar por Nombre" [(ngModel)]="nombre" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="buscarNombre()">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mt-3">
+        <h4 class="mb-3">Lista Productos</h4>
+        <ul class="list-group mb-3">
+            <li class="list-group-item" *ngFor="let productos of producto; let i = index"
+                [class.active]="i == currentIndex" (click)="setProductoActivo(productos, i)">
+                {{ productos.nombre }}
+            </li>
+        </ul>
+        <button class="btn btn-sm btn-danger" (click)="removerAllProductos()">
+            Remover todo
+        </button>
+    </div>
+    <div class="col-md-6">
+        <app-producto-details [viewMode]="true" [currentProducto]="currentProducto"></app-producto-details>
+    </div>
+</div>

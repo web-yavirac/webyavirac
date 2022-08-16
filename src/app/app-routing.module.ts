@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardPaginaComponent } from './dashboard-pagina/dashboard-pagina.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { NavegationComponent } from './navegation/navegation.component';
+import { ActualizarComponent } from './components/companies/actualizar/actualizar.component';
 
 const routes: Routes = [
 
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path:'tables' , component: NavegationComponent},
 
   {path:'companies' , component: CompaniesComponent},
+	{path:'actualizar' , component: ActualizarComponent},
 	{ path:'*', redirectTo:'', pathMatch:'full'},
 ];
 
